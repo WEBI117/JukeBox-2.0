@@ -5,7 +5,7 @@ import Testcomponentclass from './components/testcomponentclass/testcomponentcla
 function App() {
   return (
     <div className="App">
-      <Testcomponentfun componenttype="functional"/>
+      <Testcomponentfun message="yo"/>
       <Testcomponentclass componenttype="class"/>
       <p> Hello world </p>
     </div>
