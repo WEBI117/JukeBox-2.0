@@ -1,0 +1,40 @@
+Express-JS useful concepts
+----
+
+The Express Class
+--
+* There is an express class that basically creates an instance of an express
+application and exposes all the application functionality through an instance
+of this class.
+* An instance of the express application exposes get(), post() and other
+  methods analogous of HTTP request methods used to service HTTP requests to
+  the application.
+* These methods take a Route Path string and callback functions as arguments.
+* The Route Path can include regular expressions and has special characters
+  reserved as regex tokens.
+* The callback functions can be a single function, multiple functions seperated
+  by commas and a list of functions.
+* in order to call the next function in the list or line of functions given as
+  arguments to one of these express class methods, the next() method must be
+  called in the calling function.
+* Together these functions can be thought to form a chain of callback functions
+  each of which uses the next method to call the next function in the
+  line/list.
+
+The Express Router Class
+---
+* express.router is class that basically functions as a mini express
+  application.
+
+The Express Pipline
+---
+* The entire express application is basically a pipeline of ordered functions and a
+  server.
+* The server listens for requests to specific urls and then jumps to the 
+  appropriate point in the pipline.
+* The pipline of functions consitis of middlewears and routes. The order in
+  which these are specified dictates the way in which a request is handled.
+* A route is the point to which the application control jumps to after running
+  the initial portion of the pipeline before every request. Once the control
+  flow jumps to the specified route, the applications executes the pipline in
+  order until it reaches a request termination of some sort.

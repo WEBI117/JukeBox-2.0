@@ -1,9 +1,8 @@
 WEBAPP
 ------
+Have a react native application skeleton connected to an express backend API up
+and running.
 
-Progress
----
-Have a react native application skeleton up and running.
 
 ToDo:
 --
@@ -21,27 +20,15 @@ ToDo:
 Goal:
 --
 Create a fully functional React front-end web app for jukebox-2.0 with an express
-backend api to route requests to and from the clients.
-
-
-React uselful concepts.
---
-* The simplest react component is a function that returns a jsx element.
-* The props object in each react component is a single object that refers to the
-properties and children for that react component.
-
-State
--
-* State can only be used in React class based components.
-* The state is assigned is initialized with a json object in the constructor
-  and is the only time that it is assigned a value using the '=' sign. All
-  subsequent changes to state are made by passing a new object representing
-  the new state to the this.setState(newStateObject) method. Calling this
-  method re-renders the component automatically.
-* State updates may be asynchronous and React may batch multiple setState() calls into a single update for performance.
-* State can be used to trickle data down to child components thrugh props. But
-  this flow can only go downwards.
+backend api to route requests to and from clients.
 
 API
 ------
-* Learn about express js Build WebApp front en Build WebApp front end.
+Have an expressjs API application connected to a React.js front end up and
+running.
+
+
+ToDo:
+--
+* Learn about express js main concepts tp understand the flow and functionality
+  of a framework and how we can leverage it to achieve our goals.
