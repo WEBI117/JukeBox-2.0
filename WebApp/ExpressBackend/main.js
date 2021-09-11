@@ -4,16 +4,18 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('api:server');
 var http = require('http');
-var Constants = require('../constants')
+var Constants = require('./constants');
+var classLoader = require('./Services/ClassLoader');
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '9000');
 app.set('port', port);
+app.set('stink', 'Azlan')
 
 /**
  * Get Command Line Arguments for app.
@@ -24,6 +26,11 @@ var CLIEnumerable = {
 }
 var CLArgs = parseCommmandLineArgs()
 Constants.setConstants(CLArgs)
+
+/**
+ * Initialize all required Data class instances.
+ */
+classLoader.Initialize();
 
 /**
  * Create HTTP server.

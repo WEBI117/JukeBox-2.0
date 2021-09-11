@@ -6,7 +6,8 @@ and running.
 TODO:
 --
 Work on backend.
-Create Spotify authentication flow for backend.
+    Create Spotify authentication flow for backend. (Complete)
+    Integreate SpotifyPlayBackSDK logic into react server app.
 
 ToDo:
 --
