@@ -7,8 +7,8 @@ An application that allows customers to shape their own customer experience at e
 
 Requirements
 ---
-An establishment with a music system connected to an interenet connected computer system.
-A mobile Phone within a certain distance of the establishment premises qhich can send requests to the local computer system.
+An establishment with a music system connected to an interenet connected computer system running the JukeBox-2.0 server.
+A mobile Phone within a certain distance of the establishment premises running the JukeBox-2.0 mobile app which can send requests to the local computer system.
 
 Components
 ---

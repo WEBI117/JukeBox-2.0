@@ -3,6 +3,11 @@ WEBAPP
 Have a react native application skeleton connected to an express backend API up
 and running.
 
+TODO:
+--
+Work on backend.
+    Create Spotify authentication flow for backend. (Complete)
+    Integreate SpotifyPlayBackSDK logic into react server app.
 
 ToDo:
 --
