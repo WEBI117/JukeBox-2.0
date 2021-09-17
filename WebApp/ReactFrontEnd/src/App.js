@@ -2,14 +2,16 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import Testcomponentfun from './components/testcomponentfunctional/testcomponentfunction'
 import Testcomponentclass from './components/testcomponentclass/testcomponentclass'
-import SpotifyPlayerComponent from './components/SpotifyPlayerComponent/spotifyPlayer';
+import SpotifyPlayerComponent from './components/SpotifyPlayerComponent/SpotifyPlayer';
+import SongList from './components/SongListComponent/SongList';
 
 // Helper Functions.
 
 // TODO: Initiliza Spotify SDK script programmatically...
 function App() {
   const [player, setPlayer] = useState(null);
-  const [token, setToken] = useState('BQDe_slylH6XrlAF7FAhRhjhvO9PKQz3bGKBIhh1WAb667QXD8UVofIp-TK5RVVyNIk4kYhQPihDUUD_Nx0ybyxzWjNw9CjY4i2_rfua85NUidba7iUp2SzA2mPY8gpo8BUesCrg_DmMPt0gRnrPUDsgSFfWeamqENquShtTI9UOKbj4UKar2eE');
+  const [token, setToken] = useState('BQAoboMbDXKlETPAHvzKHfu6xomFhFATsPVh8EsiB0PPy36hsctxw2iB33hr8dZYhLra3T2AbWS-abRL6hrq4eRsoyX2LCBwGCBJ4XqcT_qfjxcSQf_A8KVu3StiW3lzv2MgHDY7s6CLnn8os1niCVXX8D0Nbe-i0_OaHi1bw3QOqvJ1v4O7LEI');
+  // Add useEffect hook to get access token from backend.
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://sdk.scdn.co/spotify-player.js";
@@ -55,6 +57,7 @@ function App() {
   return (
     <div className="App">
       <Testcomponentfun message='hello'/>
+      <SongList/>
     </div>
   );
 }
