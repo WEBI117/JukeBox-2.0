@@ -2,29 +2,34 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import Testcomponentfun from './components/testcomponentfunctional/testcomponentfunction'
 import Testcomponentclass from './components/testcomponentclass/testcomponentclass'
-import SpotifyPlayerComponent from './components/SpotifyPlayerComponent/spotifyPlayer';
+import SpotifyPlayerHelper from './Helpers/SpotifyPlayerHelper';
 
 // Helper Functions.
 
 // TODO: Initiliza Spotify SDK script programmatically...
 function App() {
-  const [player, setPlayer] = useState(null);
-  const [token, setToken] = useState('BQDe_slylH6XrlAF7FAhRhjhvO9PKQz3bGKBIhh1WAb667QXD8UVofIp-TK5RVVyNIk4kYhQPihDUUD_Nx0ybyxzWjNw9CjY4i2_rfua85NUidba7iUp2SzA2mPY8gpo8BUesCrg_DmMPt0gRnrPUDsgSFfWeamqENquShtTI9UOKbj4UKar2eE');
+  const [player, setPlayer] = useState({});
+  const [tokenObj, setTokenObj] = useState({});
+  useEffect(() => {
+    console.log(`Token updated to ${tokenObj.access_token}`)
+  }, [tokenObj])
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://sdk.scdn.co/spotify-player.js";
     script.async = true;
     document.body.appendChild(script)
 
+    // replace with original after testing.
+    //getOAuthToken: cb => { SpotifyPlayerHelper.refresAccessToken(cb,setTokenObj); },
     window.onSpotifyWebPlaybackSDKReady = () => {
       const player = new window.Spotify.Player({
         name: 'Web Playback SDK',
-        getOAuthToken: cb => { cb(token); },
+        getOAuthToken: cb => { SpotifyPlayerHelper.refresAccessToken(cb,setTokenObj); },
         volume: 0.5
       });
 
       setPlayer(player);
-
+      
       // Ready
       player.on('ready', ({ device_id }) => {
         console.log('Ready with Device ID', device_id);

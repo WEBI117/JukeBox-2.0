@@ -33,7 +33,7 @@ module.exports = class AuthHelper{
             "client_id":clientid,
             "response_type":"code",
             "redirect_uri":redirectUri,
-            "scope":"streaming"
+            "scope":"streaming user-read-email user-read-private"
         }
         return urlHelper.createURL("https://accounts.spotify.com/authorize", parameters);
     }

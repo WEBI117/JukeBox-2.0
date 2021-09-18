@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPI = require('./routes/testAPI');
 var AuthenticationAPI = require('./routes/authentication');
+var AccessTokenAPI = require('./routes/accessToken');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/hello', testAPI);
 app.use('/authentication', AuthenticationAPI);
+app.use('/accesstoken', AccessTokenAPI);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
