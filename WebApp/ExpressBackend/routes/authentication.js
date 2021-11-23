@@ -5,7 +5,7 @@ const Constants = require('../constants');
 const fetch = require('node-fetch');
 const urlHelper = require('../Helpers/UrlHelper');
 const authHelper = require('../Helpers/AuthenticationHelper');
-var tokenHandler = require('../Services/TokenHandler');
+var classLoader = require("../Services/ClassLoader");
 
 // Local variables
 var spotifyDetailsFilePath = Constants.spotifyDetailsFilePath;
@@ -13,7 +13,7 @@ var clientID = ""
 var authorization_String = ""
 var redirectURI = Constants.loginRedirectURI;
 
-router.get('/login', function(req, res, next) {
+router.get('/login', (req, res, next) => {
     authHelper.readClientIDandSecret(spotifyDetailsFilePath)
     .then((result) => {
         var spotifyDetailsDict = authHelper.parseSpotifyDetailsString(result);
@@ -49,7 +49,7 @@ router.get('/logincallback', (req,res,next) => {
         })
         .then((resp) => {
             var results = JSON.parse(resp);
-            tokenHandler.initialize(results.access_toker,results.refresh_token,results.expires_in);
+            classLoader.tokenHandler.initialize(results.refresh_token,results.access_token,results.expires_in,authorization_String);
             // Save the recieved tokens etc.
             res.redirect(Constants.appURL)
         })
